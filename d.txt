@@ -1,0 +1,20 @@
+  // Farmer Registration
+    @GetMapping("/register")
+public String showRegistrationForm(Model model) {
+    model.addAttribute("farmer", new Farmer());
+    return "Farmer_Registration"; // Ensure this file exists
+}
+
+
+@PostMapping("/register")
+public String registerFarmer(@ModelAttribute Farmer farmer, Model model) {
+    String email = farmer.getMEmail();
+    String pass = farmer.getPassword();
+    if (!farmerService.emailExists(email)) {
+        farmerService.registerFarmer(farmer);
+        return "Farmer_Login"; // Ensure this file exists in templates
+    } else {
+        model.addAttribute("error", "Email already exists. Please use a different email.");
+        return "Farmer_Registration"; // Ensure this file exists in templates
+    }
+}

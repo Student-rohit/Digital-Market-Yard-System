@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Panel</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Sender</th>
+            <th>Message</th>
+            <th>Timestamp</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="msg : ${messages}">
+            <td th:text="${msg.id}"></td>
+            <td th:text="${msg.senderName}"></td>
+            <td th:text="${msg.content}"></td>
+            <td th:text="${#temporals.format(msg.timestamp, 'yyyy-MM-dd HH:mm')}"></td>
+            <td><a th:href="@{'/admin/delete/' + ${msg.id}}">Delete</a></td>
+        </tr>
+    </table>
+</body>
+</html>

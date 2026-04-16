@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Public Chat</title>
+</head>
+<body>
+    <h2>Public Chat</h2>
+    <form th:action="@{/chat/send}" th:object="${message}" method="post">
+        Name: <input type="text" th:field="*{senderName}" required /> <br/>
+        Message: <input type="text" th:field="*{content}" required /> <br/>
+        <button type="submit">Send</button>
+    </form>
+
+    <hr/>
+    <div>
+        <h3>Messages:</h3>
+        <ul>
+            <li th:each="msg : ${messages}">
+                <strong th:text="${msg.senderName}">Name</strong>: 
+                <span th:text="${msg.content}">Content</span>
+                <em th:text="${#temporals.format(msg.timestamp, 'yyyy-MM-dd HH:mm')}">Time</em>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

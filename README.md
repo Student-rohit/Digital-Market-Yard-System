@@ -10,10 +10,7 @@ A modern Spring Boot web application designed to digitize traditional agricultur
 **Mini Project Title:** Digital Market Yard System  
 **Department:** Computer Science & Engineering, NBNSCOE, Solapur  
 
-**Presented By:**
-- Dayanand Jagdale 
-- Saurabh Aglave   
-**Under the guidance of:** Prof. Harish T. Gurme
+
 
 ## 📖 Table of Contents
 
